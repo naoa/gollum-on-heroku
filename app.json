@@ -25,7 +25,7 @@
     },
     "GITHUB_TOKEN": {
       "description": "An access key for GitHub. If this field is empty, updating on Heroku is not synchronized.",
-      "generator": "secret"
+      "generator": "secret",
       "required": false
     },
     "AUTHOR_NAME": {
@@ -42,7 +42,7 @@
     },
     "BASIC_AUTH_PASSWORD": {
       "description": "Password for Basic authentication",
-      "generator": "secret"
+      "generator": "secret",
       "required": false
     },
     "GOLLUM_UNIVERSAL_TOC": {
