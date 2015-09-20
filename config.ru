@@ -8,17 +8,18 @@ repo_urls = ENV.collect { |e| e[1] if e[0] =~ /^GIT_REPO_URL_[0-9]+$/ }.compact!
 github_token = ENV['GITHUB_TOKEN']
 author_email = ENV['AUTHOR_EMAIL']
 author_name = ENV['AUTHOR_NAME']
-gollum_css = ENV['GOLLUM_CSS'] ? true : false
-gollum_js = ENV['GOLLUM_JS']  ? true : false
-gollum_allow_editing = ENV['GOLLUM_ALLOW_EDITING'] ? true : false
+gollum_universal_toc = ENV['GOLLUM_UNIVERSAL_TOC'] ? true : false
+gollum_allow_editing = ENV['GOLLUM_ALLOW_EDITING'] ? false : true
 gollum_live_preview = ENV['GOLLUM_LIVE_PREVIEW'] ? true : false
 gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] ? true : false
-gollum_h1_title = ENV['GOLLUM_H1_TITLE'] ? true : false
 gollum_show_all = ENV['GOLLUM_SHOW_ALL'] ? true : false
 gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] ? true : false
-gollum_user_icons = ENV['GOLLUM_USER_ICONS'] || 'none'
-gollum_template_dir = ENV['GOLLUM_TEMPLATE_DIR']
-gollum_universal_toc = ENV['GOLLUM_UNIVERSAL_TOC'] ? true : false
+
+gollum_h1_title = false
+gollum_user_icons = 'none'
+gollum_css = true
+gollum_js = true
+gollum_template_dir = nil
 
 `git config --global credential.helper store`
 `echo https://#{github_token}:x-oauth-basic@github.com >> ~/.git-credentials` if github_token
