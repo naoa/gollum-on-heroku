@@ -11,13 +11,14 @@ auto generated git powered wiki ([Gollum](https://github.com/gollum/gollum)) for
 
 | variable | requirement | description | 
 | -------- | ----------- | ----------- |
+| GITHUB_TOKEN |  | need this if update from heroku |
 | GIT_REPO_URL_1 | true | e.g https://github.com/naoa/test https://github.com/naoa/test.wiki|
 | GIT_REPO_URL_2~  |  |  |
-| GITHUB_TOKEN |  | need this if update from heroku |
 | AUTHOR_NAME |  |  |
 | AUTHOR_EMAIL |  |  |
 | BASIC_AUTH_USERNAME |  |  |
 | BASIC_AUTH_PASSWORD |  |  |
+| BASIC_AUTH_MANAGE_ONLY |  |  |
 | GOLLUM_UNIVERSAL_TOC |  |  |
 | GOLLUM_ALLOW_EDITING |  |  |
 | GOLLUM_LIVE_PREVIEW |  |  |

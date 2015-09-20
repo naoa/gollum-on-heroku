@@ -24,10 +24,30 @@ gollum_template_dir = nil
 `git config --global credential.helper store`
 `echo https://#{github_token}:x-oauth-basic@github.com >> ~/.git-credentials` if github_token
 
+
+class ManageAuth < Rack::Auth::Basic
+  def call(env)
+    request = Rack::Request.new(env)
+    action = request.path_info.split('/')[1] if request.path_info
+    basic_auth_manage_action = %W(edit create revert rename upload uploadFile delete)
+    ignore_action = ["/create/custom.css", "/create/custom.js"]
+    unless basic_auth_manage_action.include?(action) && !ignore_action.include?(request.path_info)
+      @app.call(env)
+    else
+      super
+    end
+  end
+end
+
 class Precious::App
   basic_auth_username = ENV['BASIC_AUTH_USERNAME']
   basic_auth_password = ENV['BASIC_AUTH_PASSWORD']
-  if basic_auth_username && basic_auth_password
+  basic_auth_manage = ENV['BASIC_AUTH_MANAGE_ONLY']
+  if basic_auth_username && basic_auth_password && basic_auth_manage
+    use ManageAuth do |username, password|
+      [username, password] == [basic_auth_username, basic_auth_password]
+    end
+  else
     use Rack::Auth::Basic, "Restricted Area" do |username, password|
       [username, password] == [basic_auth_username, basic_auth_password]
     end

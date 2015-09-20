@@ -31,6 +31,10 @@
       "description": "Password for Basic authentication",
       "required": false
     },
+    "BASIC_AUTH_MANAGE_ONLY": {
+      "description": "Only manage action such as edit/create etc. (default :false)",
+      "required": false
+    },
     "GOLLUM_UNIVERSAL_TOC": {
       "description": "Option for Gollum (default: false)",
       "required": false
