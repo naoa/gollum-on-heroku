@@ -15,18 +15,6 @@
       "description": "Git repository URL.",
       "required": false
     },
-    "GIT_REPO_URL_3": {
-      "description": "Git repository URL.",
-      "required": false
-    },
-    "GIT_REPO_URL_4": {
-      "description": "Git repository URL.",
-      "required": false
-    },
-    "GIT_REPO_URL_5": {
-      "description": "Git repository URL.",
-      "required": false
-    },
     "AUTHOR_NAME": {
       "description": "Author name",
       "required": false
@@ -44,27 +32,27 @@
       "required": false
     },
     "GOLLUM_UNIVERSAL_TOC": {
-      "description": "Option for Gollum",
+      "description": "Option for Gollum (default: false)",
       "required": false
     },
     "GOLLUM_ALLOW_EDITING": {
-      "description": "Option for Gollum",
+      "description": "Option for Gollum (default: true)",
       "required": false
     },
     "GOLLUM_LIVE_PREVIEW": {
-      "description": "Option for Gollum",
+      "description": "Option for Gollum (default: true)",
       "required": false
     },
     "GOLLUM_ALLOW_UPLOADS": {
-      "description": "Option for Gollum",
+      "description": "Option for Gollum (default: true)",
       "required": false
     },
     "GOLLUM_SHOW_ALL": {
-      "description": "Option for Gollum",
+      "description": "Option for Gollum (default: true)",
       "required": false
     },
     "GOLLUM_COLLAPSE_TREE": {
-      "description": "Option for Gollum",
+      "description": "Option for Gollum (default: false)",
       "required": false
     }
   },

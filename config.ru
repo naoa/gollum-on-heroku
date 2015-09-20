@@ -8,12 +8,12 @@ repo_urls = ENV.collect { |e| e[1] if e[0] =~ /^GIT_REPO_URL_[0-9]+$/ }.compact!
 github_token = ENV['GITHUB_TOKEN']
 author_email = ENV['AUTHOR_EMAIL']
 author_name = ENV['AUTHOR_NAME']
-gollum_universal_toc = ENV['GOLLUM_UNIVERSAL_TOC'] ? true : false
-gollum_allow_editing = ENV['GOLLUM_ALLOW_EDITING'] ? false : true
-gollum_live_preview = ENV['GOLLUM_LIVE_PREVIEW'] ? true : false
-gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] ? true : false
-gollum_show_all = ENV['GOLLUM_SHOW_ALL'] ? true : false
-gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] ? true : false
+gollum_universal_toc = ENV['GOLLUM_UNIVERSAL_TOC'] || false
+gollum_allow_editing = ENV['GOLLUM_ALLOW_EDITING'] || true
+gollum_live_preview = ENV['GOLLUM_LIVE_PREVIEW'] || true
+gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] true
+gollum_show_all = ENV['GOLLUM_SHOW_ALL'] || true
+gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] || false
 
 gollum_h1_title = false
 gollum_user_icons = 'none'
@@ -42,12 +42,9 @@ repo_urls.each do |repo_url|
   repo_name = File.basename(repo_uri.path)
   unless File.exists? "#{repo_name}"
     gritty = Grit::Git.new(repo_name)
-    r = gritty.clone({:branch => 'master'}, "#{repo_url}", repo_name)
-    p repo_name
-    p r
+    gritty.clone({:branch => 'master'}, "#{repo_url}", repo_name)
     unless File.exists? "#{repo_name}"
       if github_token
-        p "tukuru"
         client = Octokit::Client.new access_token: github_token
         client.create_repo(repo_name, auto_init: true, description: 'Wiki source for Gollum')
         gritty.clone({:branch => 'master'}, "#{repo_url}", repo_name)
