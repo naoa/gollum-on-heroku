@@ -11,7 +11,7 @@ auto generated git powered wiki ([Gollum](https://github.com/gollum/gollum)) for
 
 | variable | requirement | description | 
 | -------- | ----------- | ----------- |
-| GIT_REPO_URL_1 | true | e.g https://github.com/naoa/test.git https://github.com/naoa/test.wiki|
+| GIT_REPO_URL_1 | true | e.g https://github.com/naoa/test https://github.com/naoa/test.wiki|
 | GIT_REPO_URL_2~  |  |  |
 | GITHUB_TOKEN |  | need this if update from heroku |
 | AUTHOR_NAME |  |  |
@@ -24,13 +24,16 @@ auto generated git powered wiki ([Gollum](https://github.com/gollum/gollum)) for
 | GOLLUM_ALLOW_UPLOADS |  |  |
 | GOLLUM_SHOW_ALL |  |  |
 | GOLLUM_COLLAPSE_TREE |  |  |
-| GOLLUM_H1_TITLE |  |  |
-| GOLLUM_USER_ICONS |  |  |
-| GOLLUM_CSS |  |  |
-| GOLLUM_JS |  |  |
-| GOLLUM_TEMPLATE_DIR |  |  |
 
 * Access to https://[App name].herokuapp.com/[GIT_REPO_URL_[0-9]+]
+
+* Add heroku repository
+
+```
+git clone git@heroku.com:[App name].git
+cd [App name]
+git remote add heroku git@heroku.com:[App name].git
+```
 
 # Use local
 
