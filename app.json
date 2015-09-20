@@ -4,7 +4,7 @@
   "repository": "https://github.com/naoa/gollum-on-heroku",
   "env": {
     "GITHUB_TOKEN": {
-      "description": "An access key for GitHub. If this field is empty and use Heroku, deleted after reboot dyno.",
+      "description": "An access key for GitHub. If this field is empty, it will be deleted after reboot dyno.",
       "required": false
     },
     "GIT_REPO_URL_1": {
@@ -16,11 +16,9 @@
       "required": false
     },
     "AUTHOR_NAME": {
-      "description": "Author name",
       "required": false
     },
     "AUTHOR_EMAIL": {
-      "description": "Author email",
       "required": false
     },
     "BASIC_AUTH_USERNAME": {
@@ -32,7 +30,7 @@
       "required": false
     },
     "BASIC_AUTH_MANAGE_ONLY": {
-      "description": "Only manage action such as edit/create etc. (default :false)",
+      "description": "Only manage action such as edit/create. (default :false)",
       "required": false
     },
     "GOLLUM_UNIVERSAL_TOC": {
