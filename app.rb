@@ -12,7 +12,7 @@ class App
     @author_name = ENV['AUTHOR_NAME']
     @gollum_universal_toc = ENV['GOLLUM_UNIVERSAL_TOC'] || false
     @gollum_allow_editing = ENV['GOLLUM_ALLOW_EDITING'] || true
-    @gollum_live_preview = ENV['GOLLUM_LIVE_PREVIEW'] || true
+    @gollum_live_preview = ENV['GOLLUM_LIVE_PREVIEW'] || false
     @gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] || true
     @gollum_show_all = ENV['GOLLUM_SHOW_ALL'] || true
     @gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] || false
@@ -24,7 +24,7 @@ class App
     @gollum_template_dir = nil
 
     `git config --global credential.helper store`
-    `echo https://#{@github_token}:x-oauth-basic@github.com >> ~/.git-credentials` if @github_token
+    `echo https://#{@github_token}:x-oauth-basic@github.com > ~/.git-credentials` if @github_token
   end
 
   def set_repos

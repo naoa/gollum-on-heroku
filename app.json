@@ -1,6 +1,6 @@
 {
   "name": "Gollum on Heroku",
-  "description": "auto generated git powered wiki Gollum for Heroku.",
+  "description": "auto generate git powered wiki Gollum to Heroku.",
   "repository": "https://github.com/naoa/gollum-on-heroku",
   "env": {
     "GITHUB_TOKEN": {
