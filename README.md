@@ -3,6 +3,10 @@ auto generate git powered wiki ([Gollum](https://github.com/gollum/gollum)) to H
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+* sync to GitHub
+* simple basic authentication
+* can use multi git source
+
 ### Use Deploy to Heroku button
 
 * Click Deploy to Heroku button
