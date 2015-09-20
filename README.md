@@ -57,3 +57,10 @@ bundle exec rackup config.ru
   https://[App_name].herokuapp.com/repo_2 -> repo_2
 ```
 
+### License
+
+MIT
+
+### Authors
+
+Naoya Murakami
