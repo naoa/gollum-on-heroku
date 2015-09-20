@@ -42,9 +42,12 @@ repo_urls.each do |repo_url|
   repo_name = File.basename(repo_uri.path)
   unless File.exists? "#{repo_name}"
     gritty = Grit::Git.new(repo_name)
-    gritty.clone({:branch => 'master'}, "#{repo_url}", repo_name)
+    r = gritty.clone({:branch => 'master'}, "#{repo_url}", repo_name)
+    p repo_name
+    p r
     unless File.exists? "#{repo_name}"
       if github_token
+        p "tukuru"
         client = Octokit::Client.new access_token: github_token
         client.create_repo(repo_name, auto_init: true, description: 'Wiki source for Gollum')
         gritty.clone({:branch => 'master'}, "#{repo_url}", repo_name)
