@@ -66,26 +66,6 @@
     "GOLLUM_COLLAPSE_TREE": {
       "description": "Option for Gollum",
       "required": false
-    },
-    "GOLLUM_H1_TITLE": {
-      "description": "Option for Gollum",
-      "required": false
-    },
-    "GOLLUM_USER_ICONS": {
-      "description": "Option for Gollum",
-      "required": false
-    },
-    "GOLLUM_CSS": {
-      "description": "Option for Gollum",
-      "required": false
-    },
-    "GOLLUM_JS": {
-      "description": "Option for Gollum",
-      "required": false
-    },
-    "GOLLUM_TEMPLATE_DIR": {
-      "description": "Option for Gollum",
-      "required": false
     }
   },
   "buildpacks": [
