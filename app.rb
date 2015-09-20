@@ -34,8 +34,10 @@ class App
       unless File.exists?(repo_name)
         git = Grit::Git.new(repo_name)
         git.clone({:branch => 'master'}, repo_url, repo_name)
-        create_repo(git, repo_name) if @github_token && !File.exists?(repo_name)
-        git.clone({:branch => 'master'}, repo_url, repo_name)
+        if @github_token && !File.exists?(repo_name)
+          create_repo(repo_name)
+          git.clone({:branch => 'master'}, repo_url, repo_name)
+        end
       end
       repos[repo_name] = Grit::Repo.new(repo_name)
       raise "Not found repository" unless repos[repo_name]
@@ -79,6 +81,7 @@ class App
   end
 
   def set_hook repos
+    return unless @github_token
     Gollum::Hook.register(:post_commit, :hook_id) do |commiter, sha1|
       @repo_urls.each do |repo_url|
         repo_name = File.basename(repo_url)
@@ -90,7 +93,7 @@ class App
   end
 
   private
-  def create_repo git, repo_name
+  def create_repo repo_name
     client = Octokit::Client.new access_token: @github_token
     client.create_repo(repo_name, auto_init: true, description: 'Wiki source for Gollum')
   end
