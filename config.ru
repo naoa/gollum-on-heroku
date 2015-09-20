@@ -11,7 +11,7 @@ author_name = ENV['AUTHOR_NAME']
 gollum_universal_toc = ENV['GOLLUM_UNIVERSAL_TOC'] || false
 gollum_allow_editing = ENV['GOLLUM_ALLOW_EDITING'] || true
 gollum_live_preview = ENV['GOLLUM_LIVE_PREVIEW'] || true
-gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] true
+gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] || true
 gollum_show_all = ENV['GOLLUM_SHOW_ALL'] || true
 gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] || false
 
@@ -77,7 +77,11 @@ repo_urls.each do |repo_url|
 
   m::App.set(:gollum_path, repo_name)
 
-  routes["/#{repo_name}"] = m::App.new
+  if repo_urls.length == 1
+    routes["/"] = m::App.new
+  else
+    routes["/#{repo_name}"] = m::App.new
+  end
 end
 
 Gollum::Hook.register(:post_commit, :hook_id) do |commiter, sha1|
