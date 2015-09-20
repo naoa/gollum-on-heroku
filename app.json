@@ -42,7 +42,7 @@
       "required": false
     },
     "GOLLUM_LIVE_PREVIEW": {
-      "description": "Option for Gollum (default: true)",
+      "description": "Option for Gollum (default: false)",
       "required": false
     },
     "GOLLUM_ALLOW_UPLOADS": {
