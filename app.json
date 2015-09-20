@@ -1,0 +1,99 @@
+{
+  "name": "Gollum on Heroku",
+  "description": "auto generated git powered wiki Gollum for Heroku.",
+  "repository": "https://github.com/naoa/gollum-on-heroku",
+  "env": {
+    "GIT_REPO_URL_1": {
+      "description": "Git repository URL. e.g https://github.com/naoa/test.git https://github.com/naoa/test.wiki",
+      "required": true
+    },
+    "GIT_REPO_URL_2": {
+      "description": "Git repository URL.",
+      "required": false
+    },
+    "GIT_REPO_URL_3": {
+      "description": "Git repository URL.",
+      "required": false
+    },
+    "GIT_REPO_URL_4": {
+      "description": "Git repository URL.",
+      "required": false
+    },
+    "GIT_REPO_URL_5": {
+      "description": "Git repository URL.",
+      "required": false
+    },
+    "GITHUB_TOKEN": {
+      "description": "An access key for GitHub. If this field is empty, updating on Heroku is not synchronized.",
+      "generator": "secret"
+      "required": false
+    },
+    "AUTHOR_NAME": {
+      "description": "Author name",
+      "required": false
+    },
+    "AUTHOR_EMAIL": {
+      "description": "Author email",
+      "required": false
+    },
+    "BASIC_AUTH_USERNAME": {
+      "description": "User name for Basic authentication",
+      "required": false
+    },
+    "BASIC_AUTH_PASSWORD": {
+      "description": "Password for Basic authentication",
+      "generator": "secret"
+      "required": false
+    },
+    "GOLLUM_UNIVERSAL_TOC": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_ALLOW_EDITING": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_LIVE_PREVIEW": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_ALLOW_UPLOADS": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_SHOW_ALL": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_COLLAPSE_TREE": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_H1_TITLE": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_USER_ICONS": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_CSS": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_JS": {
+      "description": "Option for Gollum",
+      "required": false
+    },
+    "GOLLUM_TEMPLATE_DIR": {
+      "description": "Option for Gollum",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-multi.git"
+    }
+  ]
+}
+
