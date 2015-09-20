@@ -3,8 +3,12 @@
   "description": "auto generated git powered wiki Gollum for Heroku.",
   "repository": "https://github.com/naoa/gollum-on-heroku",
   "env": {
+    "GITHUB_TOKEN": {
+      "description": "An access key for GitHub. If this field is empty and use Heroku, deleted after reboot dyno.",
+      "required": false
+    },
     "GIT_REPO_URL_1": {
-      "description": "Git repository URL. e.g https://github.com/naoa/test.git https://github.com/naoa/test.wiki",
+      "description": "Git repository URL. e.g https://github.com/naoa/test https://github.com/naoa/test.wiki",
       "required": true
     },
     "GIT_REPO_URL_2": {
@@ -21,10 +25,6 @@
     },
     "GIT_REPO_URL_5": {
       "description": "Git repository URL.",
-      "required": false
-    },
-    "GITHUB_TOKEN": {
-      "description": "An access key for GitHub. If this field is empty, updating on Heroku is not synchronized.",
       "required": false
     },
     "AUTHOR_NAME": {
