@@ -1,4 +1,4 @@
-require './manage_auth'
+require './auth'
 
 class Precious::App
   basic_auth_username = ENV['BASIC_AUTH_USERNAME']
@@ -6,7 +6,7 @@ class Precious::App
   basic_auth_manage = ENV['BASIC_AUTH_MANAGE_ONLY']
   if basic_auth_username && basic_auth_password
     if basic_auth_manage
-      use ManageAuth do |username, password|
+      use Auth do |username, password|
         [username, password] == [basic_auth_username, basic_auth_password]
       end
     else

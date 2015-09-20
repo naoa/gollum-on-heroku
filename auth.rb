@@ -1,4 +1,4 @@
-class ManageAuth < Rack::Auth::Basic
+class Auth < Rack::Auth::Basic
   def call(env)
     request = Rack::Request.new(env)
     action = request.path_info.split('/')[1] if request.path_info
