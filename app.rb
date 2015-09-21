@@ -16,6 +16,7 @@ class App
     @gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] || true
     @gollum_show_all = ENV['GOLLUM_SHOW_ALL'] || true
     @gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] || false
+    @gollum_is_bare = ENV['GOLLUM_IS_BARE'] || false
 
     @gollum_h1_title = false
     @gollum_user_icons = 'none'
@@ -33,13 +34,13 @@ class App
       repo_name = File.basename(repo_url)
       unless File.exists?(repo_name)
         git = Grit::Git.new(repo_name)
-        git.clone({:branch => 'master'}, repo_url, repo_name)
+        git.clone({branch: 'master', bare: @gollum_is_bare}, repo_url, repo_name)
         if @github_token && !File.exists?(repo_name)
           create_repo(repo_name)
-          git.clone({:branch => 'master'}, repo_url, repo_name)
+          git.clone({branch: 'master', bare: @gollum_is_bare}, repo_url, repo_name)
         end
       end
-      repos[repo_name] = Grit::Repo.new(repo_name)
+      repos[repo_name] = Grit::Repo.new(repo_name, {is_bare: @gollum_is_bare})
       raise "Not found repository" unless repos[repo_name]
 
       repos[repo_name].config['user.email'] = @author_email
@@ -67,7 +68,8 @@ class App
         collapse_tree: @gollum_collapse_tree,
         user_icons: @gollum_user_icons,
         template_dir: @gollum_template_dir,
-        universal_toc: @gollum_universal_toc
+        universal_toc: @gollum_universal_toc,
+        repo_is_bare: @gollum_is_bare
       })
       m::App.set(:gollum_path, repo_name)
 

@@ -29,6 +29,7 @@ auto generate git powered wiki ([Gollum](https://github.com/gollum/gollum)) to H
 | GOLLUM_ALLOW_UPLOADS | default: true |
 | GOLLUM_SHOW_ALL | default: true |
 | GOLLUM_COLLAPSE_TREE | default: false |
+| GOLLUM_IS_BARE | "git repository URL must include .git default: false |
 
 * Add heroku repository(if need)
 

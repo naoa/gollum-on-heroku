@@ -72,4 +72,25 @@ describe "App" do
       reset_env
     end
   end
+  describe 'when repo is bare' do
+    before do
+      reset_env
+      set_env
+      ENV['GIT_REPO_URL_1'] += ".git"
+      create_bare_repo ENV['GIT_REPO_URL_1']
+    end
+    context '/' do
+      before { get '/' }
+      it 'returns 302' do
+        expect(last_response.status).to eq 302
+      end
+      it 'redirect to Home' do
+        expect(last_response.location).to eq 'http://example.org/Home'
+      end
+    end
+    after do
+      remove_repo ENV['GIT_REPO_URL_1'] += ".git"
+      reset_env
+    end
+  end
 end

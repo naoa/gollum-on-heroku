@@ -12,6 +12,14 @@ module SpecHelper
     end
   end
 
+  def create_bare_repo gollum_path
+    unless File.exists? "#{gollum_path}/.git"
+      repo = Grit::Repo.init(gollum_path, {is_bare: true})
+      repo.add('.')
+      repo.commit_all('Create gollum wiki')
+    end
+  end
+
   def remove_repo gollum_path
     FileUtils.rm_rf(gollum_path) if File.exists? "#{gollum_path}/.git"
   end

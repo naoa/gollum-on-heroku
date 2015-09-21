@@ -56,6 +56,10 @@
     "GOLLUM_COLLAPSE_TREE": {
       "description": "Option for Gollum (default: false)",
       "required": false
+    },
+    "GOLLUM_IS_BARE": {
+      "description": "git repository URL must include .git (default: false)",
+      "required": false
     }
   },
   "buildpacks": [
