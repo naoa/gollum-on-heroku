@@ -18,7 +18,7 @@ class App
     @gollum_allow_uploads = ENV['GOLLUM_ALLOW_UPLOADS'] ? !ENV['GOLLUM_ALLOW_UPLOADS'].downcase.eql?("false".downcase) : true
     @gollum_show_all = ENV['GOLLUM_SHOW_ALL'] ? !ENV['GOLLUM_SHOW_ALL'].downcase.eql?("false".downcase) : true
     @gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] ? !ENV['GOLLUM_COLLAPSE_TREE'].downcase.eql?("true".downcase) : false
-    @gollum_is_bare = ENV['GOLLUM_IS_BARE'] ? !ENV['GOLLUM_IS_BARE'].downcase.eql?("false".downcase) : true
+    @gollum_is_bare = ENV['GOLLUM_IS_BARE'] ? !ENV['GOLLUM_IS_BARE'].downcase.eql?("true".downcase) : false
 
     @gollum_user_icons = 'none'
     @gollum_css = true
