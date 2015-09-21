@@ -18,18 +18,19 @@ auto generate git powered wiki ([Gollum](https://github.com/gollum/gollum)) to H
 | GITHUB_TOKEN | An access key for GitHub. If this field is empty, updated data will be deleted after reboot dyno. |
 | GIT_REPO_URL_1 | Git repository URL. e.g https://github.com/naoa/test https://github.com/naoa/test.wiki|
 | GIT_REPO_URL_2~  | Git repository URL. any num is ok. |
-| AUTHOR_NAME |  |
-| AUTHOR_EMAIL |  |
+| AUTHOR_NAME | git config user.name |
+| AUTHOR_EMAIL | git config user.email |
 | BASIC_AUTH_USERNAME | if need protect by basic authentication |
 | BASIC_AUTH_PASSWORD | if need protect by basic authentication |
 | BASIC_AUTH_MANAGE_ONLY | if need protect only manage actions such as edit/create. |
+| GOLLUM_H1_TITLE | default: true |
 | GOLLUM_UNIVERSAL_TOC | default: false |
 | GOLLUM_ALLOW_EDITING | default: true |
 | GOLLUM_LIVE_PREVIEW | default: false |
 | GOLLUM_ALLOW_UPLOADS | default: true |
 | GOLLUM_SHOW_ALL | default: true |
 | GOLLUM_COLLAPSE_TREE | default: false |
-| GOLLUM_IS_BARE | "git repository URL must include .git default: false |
+| GOLLUM_IS_BARE | default: false / If this is true, Git repository URL must include ```.git``` extension |
 
 * Add heroku repository(if need)
 
@@ -65,3 +66,4 @@ MIT
 ### Authors
 
 Naoya Murakami
+

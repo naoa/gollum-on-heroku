@@ -11,6 +11,7 @@ class App
     @author_email = ENV['AUTHOR_EMAIL']
     @author_name = ENV['AUTHOR_NAME']
 
+    @gollum_h1_title = ENV['GOLLUM_H1_TITLE'] ? !ENV['GOLLUM_H1_TITLE'].downcase.eql?("false".downcase) : true
     @gollum_universal_toc = ENV['GOLLUM_UNIVERSAL_TOC'] ? !ENV['GOLLUM_UNIVERSAL_TOC'].downcase.eql?("true".downcase) : false
     @gollum_allow_editing = ENV['GOLLUM_ALLOW_EDITING'] ? !ENV['GOLLUM_ALLOW_EDITING'].downcase.eql?("false".downcase) : true
     @gollum_live_preview = ENV['GOLLUM_LIVE_PREVIEW'] ? !ENV['GOLLUM_LIVE_PREVIEW'].downcase.eql?("true".downcase) : false
@@ -19,7 +20,6 @@ class App
     @gollum_collapse_tree = ENV['GOLLUM_COLLAPSE_TREE'] ? !ENV['GOLLUM_COLLAPSE_TREE'].downcase.eql?("true".downcase) : false
     @gollum_is_bare = ENV['GOLLUM_IS_BARE'] ? !ENV['GOLLUM_IS_BARE'].downcase.eql?("false".downcase) : true
 
-    @gollum_h1_title = false
     @gollum_user_icons = 'none'
     @gollum_css = true
     @gollum_js = true
