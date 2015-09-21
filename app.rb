@@ -98,6 +98,7 @@ class App
   private
   def create_repo repo_name
     client = Octokit::Client.new access_token: @github_token
-    client.create_repo(repo_name, auto_init: true, description: 'Wiki source for Gollum')
+    user_account = client.user.login
+    client.create_repo(repo_name, auto_init: true, description: 'Wiki source for Gollum') unless client.repository?(user_account + "/" + repo_name)
   end
 end
