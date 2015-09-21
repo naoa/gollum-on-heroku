@@ -20,6 +20,7 @@ module Precious
       end
     end
 
+    private
     def authorize
       response['WWW-Authenticate'] = %(Basic realm="Restricted area.")
       throw(:halt, [401, "Not authorized\n"]) unless authorized?
