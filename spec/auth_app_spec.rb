@@ -23,6 +23,8 @@ describe "AuthApp" do
   end
   describe 'when authroized' do
     before do
+      ENV["BASIC_AUTH_USERNAME"] = "test"
+      ENV["BASIC_AUTH_PASSWORD"] = "test"
       basic_authorize 'test', 'test'
     end
     context '/' do
@@ -39,6 +41,9 @@ describe "AuthApp" do
     end
   end
   describe 'when not authroized' do
+    before do
+      header('Authorization', nil)
+    end
     context '/' do
       before { get '/' }
       it 'returns 401' do
